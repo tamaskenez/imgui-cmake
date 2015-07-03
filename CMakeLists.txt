@@ -14,7 +14,7 @@ add_library(imgui INTERFACE)
 if(CMAKE_VERSION VERSION_LESS 3.3)
     message(WARNING "The config-module created by your CMake version (< 3.3) "
         "can't attach the imgui source files to the exported library. Please see the "
-        "documentation in `_IMGUI_WORKS_WITHOUT_CMAKE.md` for further instructions.")
+        "documentation in `README.md` for further instructions.")
 else()
     target_sources(imgui INTERFACE
         $<BUILD_INTERFACE:${srcs}>
@@ -39,9 +39,15 @@ install(EXPORT imgui-targets
 install(FILES ${phdrs} DESTINATION include)
 install(FILES ${root}/imconfig.h DESTINATION include RENAME imconfig-sample.h)
 
-file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/hide/imgui-config.cmake "
-    include(\${CMAKE_CURRENT_LIST_DIR}/imgui-targets.cmake)
-    get_filename_component(IMGUI_SOURCES \"\${CMAKE_CURRENT_LIST_DIR}/../../../include/imgui_src/imgui.cpp\" ABSOLUTE)
-    ")
+# create config-module
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/hide/imgui-config.cmake DESTINATION lib/cmake/imgui)
+set(cm ${CMAKE_CURRENT_BINARY_DIR}/hide/imgui-config.cmake)
+
+file(WRITE ${cm} "include(\${CMAKE_CURRENT_LIST_DIR}/imgui-targets.cmake)\n")
+
+if(CMAKE_VERSION VERSION_LESS 3.3)
+    file(APPEND ${cm}
+        "get_filename_component(IMGUI_SOURCES \"\${CMAKE_CURRENT_LIST_DIR}/../../../include/imgui_src/imgui.cpp\" ABSOLUTE)\n")
+endif()
+
+install(FILES ${cm} DESTINATION lib/cmake/imgui)
