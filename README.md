@@ -20,16 +20,16 @@ Configure and install the `CMakeLists.txt` in this directory to create the
 
 - with CMake version 3.3 or later:
 
-      find_package(imgui REQUIRED)
-      ...
-      target_link_libraries(<my-target> ... imgui ...)
+        find_package(imgui REQUIRED)
+        ...
+        target_link_libraries(<my-target> ... imgui ...)
 
 - with CMake versions 2.8.12 - 3.2
 
-      find_package(imgui REQUIRED)
-      ...
-      add_exutable(<my-target> ... ${IMGUI_SOURCES})
-      target_link_libraries(<my-target> ... imgui ...)
+        find_package(imgui REQUIRED)
+        ...
+        add_exutable(<my-target> ... ${IMGUI_SOURCES})
+        target_link_libraries(<my-target> ... imgui ...)
 
 The first method requires the CMake target property `INTERFACE_SOURCES` which
 is implemented completely only in V3.3.
@@ -47,7 +47,7 @@ To use a custom `imconfig.h`,
 
 - define `IMGUI_INCLUDE_IMCONFIG_H` in your project and add its path:
 
-      target_compile_definitions(<my-target> PRIVATE IMGUI_INCLUDE_IMCONFIG_H)
-      target_include_directories(<my-target> PRIVATE <path-to-imgui.h>)
+        target_compile_definitions(<my-target> PRIVATE IMGUI_INCLUDE_IMCONFIG_H)
+        target_include_directories(<my-target> PRIVATE <path-to-imgui.h>)
 
 Also, see `imgui/examples/imconfig_example`
