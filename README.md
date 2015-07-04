@@ -1,25 +1,39 @@
-CMake support for `imgui`
+CMake support for `ImGui`
 -------------------------
 
-`imgui` has been designed to be used without CMake or any other
-build tool, by simply adding the `imgui` source files to your project.
+`ImGui` has been designed to be used without CMake or any other
+build tool, by simply adding the `ImGui` source files to your project.
 
-In case it fits your workflow better you can use `imgui` just like
+In case it fits your workflow better you can use `ImGui` just like
 any other CMake-enabled library. To allow for the same customization features
-(`imconfig.h`) as without CMake, `imgui` will be added to your project as
+(`imconfig.h`) as without CMake, `ImGui` will be added to your project as
 a set of source files and not as an actual compiled library.
 
-The original [`imgui` repository](https://github.com/ocornut/imgui) is referred as a
-submodule.
+The original [`ImGui` repository](https://github.com/ocornut/imgui) is referred as a
+submodule. The submodule tracks the master branch of the
+[`ImGui` repo](https://github.com/ocornut/imgui) which means it's still tied to a specific
+commit but it's easier to update. So you can always execute:
+
+```shell
+git submodule update --remote
+```
+
+to get the latest commits before configuring/installing the library.
 
 This repo contains a test script `./cmake-testbuild.sh` which builds the
-`imgui` CMake-project (this directory) then builds the OpenGL/GLFW examples
+`ImGui` CMake-project (this directory) then builds the OpenGL/GLFW examples
 in separate build trees. The script is tested on MacOSX, Linux, Windows. The
- `imgui` library itself (which has no OpenGL and GLFW dependencies) will
+ `ImGui` library itself (which has no OpenGL and GLFW dependencies) will
 work on a wider range of platforms.
 
 It also contains an additional `imconfig_example` which demonstrates using
 a custom `imconfig.h`.
+
+## Donating
+
+If you're using `ImGui` in your projects, please consider supporting its
+development. For details see the [README.md](https://github.com/ocornut/imgui/blob/master/README.md)
+of the `ImGui` project.
 
 Usage:
 ------
@@ -29,16 +43,20 @@ Configure and install the `CMakeLists.txt` in this directory to create the
 
 - with CMake version 3.3 or later:
 
-        find_package(imgui REQUIRED)
-        ...
-        target_link_libraries(<my-target> ... imgui ...)
+```cmake
+find_package(imgui REQUIRED)
+...
+target_link_libraries(<my-target> ... imgui ...)
+```
 
 - with CMake versions 2.8.12 - 3.2
 
-        find_package(imgui REQUIRED)
-        ...
-        add_exutable(<my-target> ... ${IMGUI_SOURCES})
-        target_link_libraries(<my-target> ... imgui ...)
+```cmake
+find_package(imgui REQUIRED)
+...
+add_exutable(<my-target> ... ${IMGUI_SOURCES})
+target_link_libraries(<my-target> ... imgui ...)
+```
 
 The first method requires the CMake target property `INTERFACE_SOURCES` which
 is implemented completely only in V3.3.
