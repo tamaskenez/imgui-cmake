@@ -4,13 +4,19 @@ CMake support for `imgui`
 `imgui` has been designed to be used without CMake or any other
 build tool, by simply adding the `imgui` source files to your project.
 
-But in case it fits your workflow better you can use `imgui` just like
+In case it fits your workflow better you can use `imgui` just like
 any other CMake-enabled library. To allow for the same customization features
 (`imconfig.h`) as without CMake, `imgui` will be added to your project as
 a set of source files and not as an actual compiled library.
 
 The [`imgui`](https://github.com/ocornut/imgui) repository is referred as a
 submodule.
+
+This repo contains a test script `./cmake-testbuild.sh` which builds the
+`imgui` CMake-project (this directory) then builds the OpenGL/GLFW examples
+in separate build trees. The script is tested on MacOSX, Linux, Windows. The
+ `imgui` library itself (which has no OpenGL and GLFW dependencies) will
+work on a wider range of platforms.
 
 Usage:
 ------

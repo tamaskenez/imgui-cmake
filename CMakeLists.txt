@@ -29,7 +29,7 @@ target_include_directories(imgui INTERFACE
     $<BUILD_INTERFACE:${root}>
     $<INSTALL_INTERFACE:include>)
 
-target_compile_definitions(imgui INTERFACE IMGUI_CONDITIONAL_IMCONFIG_H)
+target_compile_definitions(imgui INTERFACE IMGUI_DISABLE_INCLUDE_IMCONFIG_H)
 
 install(TARGETS imgui EXPORT imgui-targets DESTINATION lib)
 
