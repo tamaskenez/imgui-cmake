@@ -59,4 +59,4 @@ To use a custom `imconfig.h`,
         target_compile_definitions(<my-target> PRIVATE IMGUI_INCLUDE_IMCONFIG_H)
         target_include_directories(<my-target> PRIVATE <path-to-imgui.h>)
 
-Also, see `imgui/examples/imconfig_example`
+Also, see `./examples/imconfig_example`
