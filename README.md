@@ -9,7 +9,7 @@ any other CMake-enabled library. To allow for the same customization features
 (`imconfig.h`) as without CMake, `imgui` will be added to your project as
 a set of source files and not as an actual compiled library.
 
-The [`imgui`](https://github.com/ocornut/imgui) repository is referred as a
+The original [`imgui` repository](https://github.com/ocornut/imgui) is referred as a
 submodule.
 
 This repo contains a test script `./cmake-testbuild.sh` which builds the
@@ -17,6 +17,9 @@ This repo contains a test script `./cmake-testbuild.sh` which builds the
 in separate build trees. The script is tested on MacOSX, Linux, Windows. The
  `imgui` library itself (which has no OpenGL and GLFW dependencies) will
 work on a wider range of platforms.
+
+It also contains an additional `imconfig_example` which demonstrates using
+a custom `imconfig.h`.
 
 Usage:
 ------
