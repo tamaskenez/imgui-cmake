@@ -1,5 +1,5 @@
 CMake support for ImGui
--------------------------
+=======================
 
 ImGui has been designed to be used without CMake or any other
 build tool, by simply adding the ImGui source files to your project.
@@ -29,7 +29,7 @@ work on a wider range of platforms.
 It also contains an additional `imconfig_example` which demonstrates using
 a custom `imconfig.h`.
 
-## Donating
+### Donating
 
 If you're using ImGui in your projects, please consider supporting its
 development. For details see the [README.md](https://github.com/ocornut/imgui/blob/master/README.md)
