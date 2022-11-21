@@ -1,6 +1,8 @@
 CMake support for ImGui
 =======================
 
+**Note: This repo is abandoned, I'm using https://github.com/tamaskenez/allthesmallthings now.**
+
 ImGui has been designed to be used without CMake or any other
 build tool, by simply adding the ImGui source files to your project.
 
